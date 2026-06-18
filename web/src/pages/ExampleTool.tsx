@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { createToolClient } from '@/api/client'
 import { ToolPage } from '@/layouts/MainLayout'
-import { getApiPrefix, getToolById } from '@/tools/registry'
+import { apiPrefixFor } from '@/tools/api-prefix'
 
-const client = createToolClient(getApiPrefix(getToolById('example')!))
+const client = createToolClient(apiPrefixFor('example'))
 
 interface HealthResponse {
   status: string

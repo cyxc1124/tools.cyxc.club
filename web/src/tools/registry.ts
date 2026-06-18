@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { ExampleToolPage } from '@/pages/ExampleTool'
+import { apiPrefixFor } from '@/tools/api-prefix'
 
 export interface ToolDefinition {
   /** 唯一标识，对应 API 路径 /api/{id} */
@@ -14,10 +15,7 @@ export interface ToolDefinition {
   tags?: string[]
 }
 
-/** 由 tool_id 推导 API 前缀，前后端必须一致 */
-export function apiPrefixFor(id: string): string {
-  return `/api/${id}`
-}
+export { apiPrefixFor }
 
 export const tools: ToolDefinition[] = [
   {
