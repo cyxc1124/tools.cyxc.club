@@ -1,0 +1,80 @@
+name: Bug 反馈
+description: 报告工具异常、转换失败或页面问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请确认：已在最新版站点复现，并尽量提供复现步骤与截图。
+
+  - type: dropdown
+    id: tool
+    attributes:
+      label: 相关工具
+      description: 问题出现在哪个工具？
+      options:
+        - MarkItDown
+        - 首页 / 全站
+        - 其他（请在描述中说明）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 环境
+      options:
+        - 线上（tools.cyxc.club）
+        - 本地开发
+        - 两者均有
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 简要说明发生了什么、你期望的行为是什么
+      placeholder: 例如：上传 PDF 后返回 400，提示不支持的格式
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 尽量写清操作顺序
+      placeholder: |
+        1. 打开 /markitdown
+        2. 上传 xxx.pdf（约 2MB）
+        3. 点击「转换文件」
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 如有报错信息、HTTP 状态码、浏览器控制台错误，请一并贴上
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器 / 系统（可选）
+      placeholder: 例如 Chrome 131 / macOS 15
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息（可选）
+      description: 样本文件说明、URL、截图链接等（请勿上传敏感文件）
