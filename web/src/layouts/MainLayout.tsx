@@ -34,7 +34,7 @@ export function MainLayout() {
 
       <footer className="border-t border-border py-4 px-4 text-center text-sm text-muted space-y-1.5">
         <p>
-          遇到问题请
+          遇到问题或新需求请
           <a
             href="https://github.com/cyxc1124/tools.cyxc.club/issues"
             className="mx-1 hover:text-brand-600 transition-colors"
@@ -61,6 +61,16 @@ export function MainLayout() {
             rel="noreferrer"
           >
             cyxc.club
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://beian.miit.gov.cn/"
+            className="hover:text-brand-600 transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            京ICP备19009481号-4
           </a>
         </p>
       </footer>
