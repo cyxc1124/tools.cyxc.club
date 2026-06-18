@@ -1,8 +1,6 @@
 # tools.cyxc.club Helm values
 # HTTPS 在集群外终止（如 CDN / 外层 LB），Ingress 仅处理 HTTP 路由
 
-replicaCount: 1
-
 nameOverride: ""
 fullnameOverride: ""
 
@@ -12,6 +10,7 @@ imagePullSecrets:
 # ── 前端 ──────────────────────────────────────────
 frontend:
   enabled: true
+  replicaCount: 2
   image:
     repository: ghcr.io/cyxc1124/tools-web
     tag: ""          # 默认 Chart appVersion
@@ -29,6 +28,7 @@ frontend:
 # ── API 协调服务 ──────────────────────────────────
 api:
   enabled: true
+  replicaCount: 2
   image:
     repository: ghcr.io/cyxc1124/tools-api
     tag: ""          # 默认 Chart appVersion

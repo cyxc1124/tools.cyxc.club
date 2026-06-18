@@ -7,7 +7,7 @@ metadata:
   labels:
     {{- include "tools.frontend.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.frontend.replicaCount }}
   selector:
     matchLabels:
       {{- include "tools.frontend.selectorLabels" . | nindent 6 }}

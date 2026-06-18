@@ -10,4 +10,12 @@
    http://{{ .Values.ingress.host }}{{ .Values.api.pathPrefix }}/docs
 {{- end }}
 
+3. Replicas:
+{{- if .Values.frontend.enabled }}
+   frontend: {{ .Values.frontend.replicaCount }}
+{{- end }}
+{{- if .Values.api.enabled }}
+   api: {{ .Values.api.replicaCount }}
+{{- end }}
+
 Note: TLS/HTTPS is terminated outside this chart (CDN / external LB), not at Ingress.
