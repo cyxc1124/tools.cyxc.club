@@ -19,6 +19,9 @@ async def test_markitdown_formats(client: AsyncClient) -> None:
     assert ".pdf" in body["formats"]
     assert ".html" in body["formats"]
     assert body["description"]
+    assert body["library_name"] == "markitdown"
+    assert body["library_version"] == "0.1.6"
+    assert body["library_url"] == "https://github.com/microsoft/markitdown"
 
 
 @pytest.mark.asyncio

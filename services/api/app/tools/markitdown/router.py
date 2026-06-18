@@ -9,6 +9,9 @@ from app.tools.markitdown.schemas import (
 )
 from app.tools.markitdown.service import (
     FORMATS_DESCRIPTION,
+    MARKITDOWN_LIBRARY_NAME,
+    MARKITDOWN_LIBRARY_URL,
+    MARKITDOWN_VERSION,
     SUPPORTED_EXTENSIONS,
     convert_bytes,
     convert_url,
@@ -41,6 +44,9 @@ async def formats() -> SupportedFormatsResponse:
     return SupportedFormatsResponse(
         formats=SUPPORTED_EXTENSIONS,
         description=FORMATS_DESCRIPTION,
+        library_name=MARKITDOWN_LIBRARY_NAME,
+        library_version=MARKITDOWN_VERSION,
+        library_url=MARKITDOWN_LIBRARY_URL,
     )
 
 

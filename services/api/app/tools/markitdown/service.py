@@ -2,7 +2,7 @@ import io
 import os
 from functools import lru_cache
 
-from markitdown import MarkItDown, StreamInfo
+from markitdown import MarkItDown, StreamInfo, __version__ as MARKITDOWN_VERSION
 from markitdown._exceptions import (
     FileConversionException,
     UnsupportedFormatException,
@@ -44,6 +44,9 @@ FORMATS_DESCRIPTION = (
     "支持 PDF、Word、PowerPoint、Excel、图片、音频、HTML、CSV、JSON、"
     "ZIP、EPUB、Outlook 邮件等常见格式。"
 )
+
+MARKITDOWN_LIBRARY_NAME = "markitdown"
+MARKITDOWN_LIBRARY_URL = "https://github.com/microsoft/markitdown"
 
 
 @lru_cache(maxsize=1)

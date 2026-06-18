@@ -15,6 +15,9 @@ interface ConvertResponse {
 interface SupportedFormatsResponse {
   formats: string[]
   description: string
+  library_name: string
+  library_version: string
+  library_url: string
 }
 
 async function convertFile(file: File): Promise<ConvertResponse> {
@@ -153,6 +156,23 @@ export function MarkitdownToolPage() {
     <ToolPage
       title="MarkItDown"
       description="将 PDF、Word、Excel、PPT、图片等文件转换为 Markdown，也可通过 URL 转换网页或在线资源。"
+      meta={
+        formats && (
+          <p className="text-sm text-muted">
+            基于开源项目{' '}
+            <a
+              href={formats.library_url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-brand-600 hover:text-brand-500 transition-colors"
+            >
+              {formats.library_name}
+            </a>
+            {' '}
+            <span className="font-mono">v{formats.library_version}</span>
+          </p>
+        )
+      }
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {/* 左侧：输入区 */}

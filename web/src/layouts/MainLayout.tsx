@@ -49,10 +49,12 @@ export function MainLayout() {
 export function ToolPage({
   title,
   description,
+  meta,
   children,
 }: {
   title: string
   description?: string
+  meta?: ReactNode
   children?: ReactNode
 }) {
   return (
@@ -62,6 +64,7 @@ export function ToolPage({
         {description && (
           <p className="mt-2 text-muted max-w-2xl">{description}</p>
         )}
+        {meta && <div className="mt-2">{meta}</div>}
       </div>
       {children}
     </div>

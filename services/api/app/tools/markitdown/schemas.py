@@ -14,3 +14,6 @@ class ConvertUrlRequest(BaseModel):
 class SupportedFormatsResponse(BaseModel):
     formats: list[str] = Field(description="支持的文件扩展名列表")
     description: str = Field(description="格式说明")
+    library_name: str = Field(description="开源库包名")
+    library_version: str = Field(description="运行时安装的库版本")
+    library_url: str = Field(description="开源项目地址")
