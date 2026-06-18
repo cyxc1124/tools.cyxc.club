@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const backends = JSON.parse(
   readFileSync(path.join(root, 'dev/backends.json'), 'utf8'),
-) as { api?: number }
+)
 
 const apiPort = backends.api ?? 8080
 const apiDir = path.join(root, 'services', 'api')

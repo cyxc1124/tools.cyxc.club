@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react'
-import { ExampleToolPage } from '@/pages/ExampleTool'
+import { MarkitdownToolPage } from '@/pages/MarkitdownTool'
 import { apiPrefixFor } from '@/tools/api-prefix'
 
 export interface ToolDefinition {
@@ -19,12 +19,12 @@ export { apiPrefixFor }
 
 export const tools: ToolDefinition[] = [
   {
-    id: 'example',
-    name: '示例工具',
-    description: '演示前后端集成的示例页面，可据此添加新工具。',
-    path: '/example',
-    Page: ExampleToolPage,
-    tags: ['demo'],
+    id: 'markitdown',
+    name: 'MarkItDown',
+    description: '将 PDF、Word、Excel、PPT、图片等文件转换为 Markdown。',
+    path: '/markitdown',
+    Page: MarkitdownToolPage,
+    tags: ['document', 'convert'],
   },
 ]
 

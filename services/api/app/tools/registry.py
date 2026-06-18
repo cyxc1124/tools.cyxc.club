@@ -1,12 +1,12 @@
 from tools_common.factory import ToolRouter
 
-from app.tools.example.router import router as example_router
+from app.tools.markitdown.router import router as markitdown_router
 
 
 def get_tool_routers() -> list[ToolRouter]:
     """注册所有工具路由模块。新增工具时在此追加。"""
     return [
-        ToolRouter(id="example", router=example_router),
+        ToolRouter(id="markitdown", router=markitdown_router),
     ]
 
 

@@ -18,12 +18,3 @@ async def test_coordinator_health(client: AsyncClient) -> None:
     body = response.json()
     assert body["status"] == "ok"
     assert set(body["tools"]) == set(get_registered_tool_ids())
-
-
-@pytest.mark.asyncio
-async def test_example_tool_health(client: AsyncClient) -> None:
-    response = await client.get("/api/example/v1/health")
-    assert response.status_code == 200
-    body = response.json()
-    assert body["status"] == "ok"
-    assert body["service"] == "example"

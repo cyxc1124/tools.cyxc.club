@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { tools } from '@/tools/registry'
 
 export function MainLayout() {
   const location = useLocation()
+  const isHome = location.pathname === '/'
 
   return (
     <div className="min-h-dvh flex flex-col">
@@ -15,25 +15,16 @@ export function MainLayout() {
           >
             tools.cyxc.club
           </Link>
-          <nav className="flex flex-wrap items-center gap-1 sm:gap-2">
-            {tools.map((tool) => {
-              const active = location.pathname.startsWith(tool.path)
-              return (
-                <Link
-                  key={tool.id}
-                  to={tool.path}
-                  className={[
-                    'px-3 py-1.5 rounded-md text-sm font-medium transition-colors',
-                    active
-                      ? 'bg-brand-500 text-white'
-                      : 'text-muted hover:text-brand-600 hover:bg-surface',
-                  ].join(' ')}
-                >
-                  {tool.name}
-                </Link>
-              )
-            })}
-          </nav>
+          {!isHome && (
+            <nav>
+              <Link
+                to="/"
+                className="px-3 py-1.5 rounded-md text-sm font-medium text-muted hover:text-brand-600 hover:bg-surface transition-colors"
+              >
+                返回首页
+              </Link>
+            </nav>
+          )}
         </div>
       </header>
 

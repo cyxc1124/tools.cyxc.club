@@ -5,14 +5,7 @@ export function HomePage() {
   return (
     <div className="space-y-8">
       <section>
-        <h1 className="text-3xl font-semibold tracking-tight">在线工具集</h1>
-        <p className="mt-3 text-muted max-w-2xl">
-          统一前端入口，各工具按需对接独立后端服务。所有 API 与页面均通过
-          <code className="mx-1 px-1.5 py-0.5 rounded bg-surface text-sm">
-            tools.cyxc.club
-          </code>
-          同域访问。
-        </p>
+        <h1 className="text-3xl font-semibold tracking-tight">在线工具箱</h1>
       </section>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
