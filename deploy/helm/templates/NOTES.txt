@@ -1,0 +1,13 @@
+1. Application URL (HTTP at Ingress layer):
+{{- if or .Values.ingress.enabled .Values.ingressRoute.enabled }}
+   http://{{ .Values.ingress.host }}/
+{{- else }}
+   kubectl port-forward svc/{{ include "tools.fullname" . }}-frontend {{ .Values.frontend.service.port }}:{{ .Values.frontend.service.port }} -n {{ .Release.Namespace }}
+{{- end }}
+
+2. API docs:
+{{- if .Values.api.enabled }}
+   http://{{ .Values.ingress.host }}{{ .Values.api.pathPrefix }}/docs
+{{- end }}
+
+Note: TLS/HTTPS is terminated outside this chart (CDN / external LB), not at Ingress.

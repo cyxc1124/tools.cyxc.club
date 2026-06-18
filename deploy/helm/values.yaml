@@ -1,0 +1,71 @@
+# tools.cyxc.club Helm values
+# HTTPS 在集群外终止（如 CDN / 外层 LB），Ingress 仅处理 HTTP 路由
+
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+imagePullSecrets:
+  - name: ghcr-pull-token
+
+# ── 前端 ──────────────────────────────────────────
+frontend:
+  enabled: true
+  image:
+    repository: ghcr.io/cyxc1124/tools-web
+    tag: ""          # 默认 Chart appVersion
+    pullPolicy: IfNotPresent
+  service:
+    port: 80
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+
+# ── API 协调服务 ──────────────────────────────────
+api:
+  enabled: true
+  image:
+    repository: ghcr.io/cyxc1124/tools-api
+    tag: ""          # 默认 Chart appVersion
+    pullPolicy: IfNotPresent
+  service:
+    port: 8080
+  pathPrefix: /api
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  probes:
+    path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 15
+
+# ── Ingress（仅 HTTP，不在此层终止 TLS）──────────
+ingress:
+  enabled: true
+  host: tools.cyxc.club
+  className: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik
+
+# ── IngressRoute（Traefik，仅 HTTP entryPoint）───
+ingressRoute:
+  enabled: true
+  entryPoints:
+    - web
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+serviceAccount:
+  create: false
+  name: ""

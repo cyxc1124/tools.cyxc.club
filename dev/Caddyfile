@@ -1,0 +1,18 @@
+# 本地开发网关：与生产同域 tools.cyxc.club（需 /etc/hosts 指向 127.0.0.1）
+#
+# 使用前：
+#   1. echo '127.0.0.1 tools.cyxc.club' >> /etc/hosts
+#   2. npm run dev          # 启动 API 协调服务 + Vite
+#   3. caddy run --config dev/Caddyfile
+#
+# 访问 http://tools.cyxc.club（端口 80）
+
+tools.cyxc.club {
+	handle /api/* {
+		reverse_proxy 127.0.0.1:8080
+	}
+
+	handle {
+		reverse_proxy 127.0.0.1:5173
+	}
+}

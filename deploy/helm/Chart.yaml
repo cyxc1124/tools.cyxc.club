@@ -1,0 +1,6 @@
+apiVersion: v2
+name: tools
+description: tools.cyxc.club — 在线工具集（统一前端 + API 协调服务）
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
