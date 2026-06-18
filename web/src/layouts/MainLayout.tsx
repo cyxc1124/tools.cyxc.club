@@ -32,15 +32,37 @@ export function MainLayout() {
         <Outlet />
       </main>
 
-      <footer className="border-t border-border py-4 text-center text-sm text-muted">
-        <a
-          href="https://cyxc.club"
-          className="hover:text-brand-600 transition-colors"
-          target="_blank"
-          rel="noreferrer"
-        >
-          cyxc.club
-        </a>
+      <footer className="border-t border-border py-4 px-4 text-center text-sm text-muted space-y-1.5">
+        <p>
+          遇到问题请
+          <a
+            href="https://github.com/cyxc1124/tools.cyxc.club/issues"
+            className="mx-1 hover:text-brand-600 transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            提交 Issue
+          </a>
+        </p>
+        <p className="flex items-center justify-center gap-2 flex-wrap">
+          <a
+            href="https://github.com/cyxc1124/tools.cyxc.club"
+            className="hover:text-brand-600 transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub 仓库
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href="https://cyxc.club"
+            className="hover:text-brand-600 transition-colors"
+            target="_blank"
+            rel="noreferrer"
+          >
+            cyxc.club
+          </a>
+        </p>
       </footer>
     </div>
   )
